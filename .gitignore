@@ -1,0 +1,140 @@
+# ========================================
+# OPERATING SYSTEM FILES
+# ========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ========================================
+# PYCHARM / IDE FILES
+# ========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+*.iml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# ========================================
+# PYTHON FILES (if using any Python tools)
+# ========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ========================================
+# TEMPORARY FILES
+# ========================================
+*.tmp
+*.temp
+*.log
+*.cache
+*.bak
+*.backup
+*~
+
+# ========================================
+# NODE MODULES (if using build tools)
+# ========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.npm
+.eslintcache
+
+# ========================================
+# BUILD OUTPUTS
+# ========================================
+dist/
+build/
+.cache/
+.parcel-cache/
+out/
+
+# ========================================
+# ENVIRONMENT FILES (IMPORTANT FOR SECURITY)
+# ========================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# ========================================
+# COMPRESSED FILES
+# ========================================
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tgz
+
+# ========================================
+# LARGE MEDIA FILES (Uncomment if needed)
+# ========================================
+# *.mp4
+# *.mov
+# *.avi
+# *.mkv
+
+# ========================================
+# DEVELOPMENT DIRECTORIES
+# ========================================
+drafts/
+old/
+archive/
+temp/
+test/
+
+# ========================================
+# PERSONAL NOTES
+# ========================================
+notes.txt
+todo.txt
+TODO.md
+NOTES.md
+.scratch/
+
+# ========================================
+# PREPROCESSOR FILES
+# ========================================
+.sass-cache/
+*.css.map
+*.js.map
+
+# ========================================
+# PORTFOLIO SPECIFIC
+# ========================================
+# Uncomment if you have very large images you don't want in git
+# assets/images/original/
+# assets/videos/
+
+# Don't ignore important portfolio files
+!assets/images/IMage.jpg
+
