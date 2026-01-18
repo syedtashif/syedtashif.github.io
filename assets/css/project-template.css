@@ -187,13 +187,16 @@
 
 /* Image container */
 .project-image {
+    height: 200px;
+    /* background: var(--gradient-primary); */
     position: relative;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
     overflow: hidden;
-    border-radius: 18px; /* smoother shape */
-    box-shadow: var(--shadow-lg);
-    margin: 2rem 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 0px;
+    box-shadow: var(--shadow-md);
+    background: var(--light);
 }
 
 /* Gentle lift on hover */
