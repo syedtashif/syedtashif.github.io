@@ -1,3 +1,11 @@
+/* ============================
+   MAIN PORTFOLIO STYLESHEET
+   style.css
+   ============================ */
+
+/* ============================
+   CSS VARIABLES
+   ============================ */
 :root {
     --primary: #2563eb;
     --primary-dark: #1e40af;
@@ -19,7 +27,9 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset & Base Styles */
+/* ============================
+   RESET & BASE STYLES
+   ============================ */
 * {
     margin: 0;
     padding: 0;
@@ -39,7 +49,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Typography */
+/* ============================
+   TYPOGRAPHY
+   ============================ */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
@@ -66,17 +78,17 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 50%;
 }
 
-/* Container */
+/* ============================
+   CONTAINER & SECTIONS
+   ============================ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Section Styling */
 section {
     padding: 6rem 0;
     position: relative;
@@ -112,7 +124,9 @@ section {
     margin: 0 auto;
 }
 
-/* Navigation */
+/* ============================
+   NAVIGATION
+   ============================ */
 nav {
     position: fixed;
     top: 0;
@@ -184,7 +198,9 @@ nav.scrolled {
     color: var(--dark);
 }
 
-/* Hero Section */
+/* ============================
+   HERO SECTION
+   ============================ */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -369,7 +385,9 @@ nav.scrolled {
     }
 }
 
-/* About Section */
+/* ============================
+   ABOUT SECTION
+   ============================ */
 .about-section {
     background: var(--white);
 }
@@ -384,53 +402,18 @@ nav.scrolled {
 
 .about-image {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-placeholder {
+.profile-image {
     width: 100%;
     max-width: 350px;
     aspect-ratio: 1;
-    background: var(--gradient-primary);
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 8rem;
     box-shadow: var(--shadow-xl);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.image-placeholder::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
-}
-
-.experience-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: var(--shadow-lg);
-    text-align: center;
-}
-
-.badge-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.badge-text {
-    font-size: 0.9rem;
-    color: var(--gray);
+    object-fit: cover;
 }
 
 .about-text h3 {
@@ -504,7 +487,9 @@ nav.scrolled {
     font-size: 0.95rem;
 }
 
-/* Projects Section */
+/* ============================
+   PROJECTS SECTION
+   ============================ */
 .projects-section {
     background: var(--light);
 }
@@ -531,25 +516,49 @@ nav.scrolled {
 }
 
 .project-image {
-    height: 200px;
-    background: var(--gradient-primary);
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 240px;
     overflow: hidden;
+    background: var(--light);
+    display: block;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    z-index: 1;
 }
 
 .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    opacity: 0;
-    transition: var(--transition);
+    transition: opacity 0.35s ease;
+    z-index: 2;
 }
 
 .project-card:hover .project-overlay {
@@ -557,27 +566,22 @@ nav.scrolled {
 }
 
 .overlay-link {
-    padding: 0.75rem 1.5rem;
-    background: var(--white);
-    color: var(--primary);
+    padding: 0.85rem 1.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: var(--transition);
+    backdrop-filter: blur(10px);
 }
 
 .overlay-link:hover {
-    background: var(--primary);
-    color: var(--white);
-}
-
-.project-icon {
-    font-size: 4rem;
-    color: var(--white);
-    opacity: 0.3;
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
 }
 
 .project-content {
@@ -593,6 +597,15 @@ nav.scrolled {
     color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
     margin-bottom: 0.75rem;
 }
 
@@ -668,7 +681,9 @@ nav.scrolled {
     gap: 1rem;
 }
 
-/* Skills Section */
+/* ============================
+   SKILLS SECTION
+   ============================ */
 .skills-section {
     background: var(--white);
 }
@@ -764,7 +779,75 @@ nav.scrolled {
     transform: translateY(-3px);
 }
 
-/* Education Section */
+.skill-subsection {
+    margin-top: 20px;
+}
+
+.skill-subsection:first-child {
+    margin-top: 0;
+}
+
+.subsection-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gray);
+    margin-bottom: 12px;
+    text-align: left;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* ============================
+   COURSEWORK SECTION
+   ============================ */
+.coursework-section {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.course-item {
+    background: var(--white);
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+    box-shadow: var(--shadow-sm);
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    border-color: #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.course-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.course-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* ============================
+   EDUCATION SECTION
+   ============================ */
 .education-section {
     background: var(--light);
 }
@@ -875,181 +958,84 @@ nav.scrolled {
     margin-bottom: 1rem;
 }
 
-.education-description {
-    color: var(--gray);
-    line-height: 1.7;
-}
-
-/* Contact Section */
+/* ============================
+   CONTACT SECTION
+   ============================ */
 .contact-section {
     background: var(--white);
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
+.contact-content-simple {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.contact-info h3 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
+.contact-intro {
+    margin-bottom: 50px;
 }
 
-.contact-info > p {
-    color: var(--gray);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-}
-
-.contact-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.contact-item {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-}
-
-.contact-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-primary);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 1.2rem;
-    flex-shrink: 0;
-}
-
-.contact-details h4 {
+.contact-intro p {
     font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-}
-
-.contact-details p,
-.contact-details a {
     color: var(--gray);
+    line-height: 1.8;
 }
 
-.contact-details a:hover {
-    color: var(--primary);
-}
-
-.contact-social h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
-}
-
-.social-buttons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-btn {
-    width: 45px;
-    height: 45px;
-    background: var(--light);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--dark);
-    font-size: 1.2rem;
-    transition: var(--transition);
-}
-
-.social-btn:hover {
-    background: var(--gradient-primary);
-    color: var(--white);
-    transform: translateY(-3px);
-}
-
-.contact-form-container {
-    background: var(--light);
-    padding: 2.5rem;
-    border-radius: 20px;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-row {
+.contact-methods {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    font-weight: 500;
-    color: var(--dark);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 1rem;
-    border: 2px solid transparent;
+.contact-method-card {
     background: var(--white);
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
+    padding: 40px 30px;
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
+.contact-method-card:hover {
+    transform: translateY(-5px);
+    border-color: #667eea;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.submit-btn {
+.contact-method-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     background: var(--gradient-primary);
-    color: var(--white);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    transition: var(--transition);
+    font-size: 2rem;
+    color: var(--white);
 }
 
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+.contact-method-info h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0 0 8px 0;
 }
 
-/* Footer */
+.contact-method-info p {
+    font-size: 1rem;
+    color: #667eea;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
 .footer {
     background: var(--dark);
     color: var(--white);
@@ -1134,7 +1120,9 @@ nav.scrolled {
     margin-bottom: 0.5rem;
 }
 
-/* Scroll to Top Button */
+/* ============================
+   SCROLL TO TOP BUTTON
+   ============================ */
 .scroll-top {
     position: fixed;
     bottom: 2rem;
@@ -1163,18 +1151,15 @@ nav.scrolled {
     transform: translateY(-5px);
 }
 
-/* Responsive Design */
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
 @media (max-width: 1024px) {
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .about-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .contact-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
@@ -1258,10 +1243,6 @@ nav.scrolled {
         flex-direction: column;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1274,178 +1255,7 @@ nav.scrolled {
     .container {
         padding: 0 1.5rem;
     }
-}
 
-@media (max-width: 480px) {
-    .name {
-        font-size: 2.2rem;
-    }
-
-    .social-links {
-        flex-wrap: wrap;
-    }
-
-    .about-highlights {
-        flex-direction: column;
-    }
-}
-
-/* ========================================
-   COURSEWORK SECTION - LIGHT THEME
-======================================== */
-.coursework-section {
-    padding: 80px 0;
-    background: #f8f9fa;
-}
-
-.coursework-section .section-title {
-    color: #2d3748;
-}
-
-.coursework-section .title-underline {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.coursework-section .section-subtitle {
-    color: #4a5568;
-}
-
-.coursework-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.course-item {
-    background: #ffffff;
-    padding: 25px 20px;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.course-item:hover {
-    transform: translateY(-5px);
-    border-color: #667eea;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-}
-
-.course-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.course-item h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #2d3748;
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* ========================================
-   SOFT SKILLS SUBSECTION
-======================================== */
-.skill-subsection {
-    margin-top: 20px;
-}
-
-.skill-subsection:first-child {
-    margin-top: 0;
-}
-
-.subsection-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #4a5568;
-    margin-bottom: 12px;
-    text-align: left;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e2e8f0;
-}
-
-/* ========================================
-   SIMPLIFIED CONTACT SECTION
-======================================== */
-.contact-content-simple {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-intro {
-    margin-bottom: 50px;
-}
-
-.contact-intro p {
-    font-size: 1.1rem;
-    color: #4a5568;
-    line-height: 1.8;
-}
-
-.contact-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.contact-method-card {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 15px;
-    border: 2px solid #e2e8f0;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.contact-method-card:hover {
-    transform: translateY(-5px);
-    border-color: #667eea;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-}
-
-.contact-method-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: #ffffff;
-}
-
-.contact-method-info h4 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2d3748;
-    margin: 0 0 8px 0;
-}
-
-.contact-method-info p {
-    font-size: 1rem;
-    color: #667eea;
-    margin: 0;
-    font-weight: 500;
-}
-
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
-@media (max-width: 768px) {
     .coursework-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
@@ -1475,3 +1285,16 @@ nav.scrolled {
     }
 }
 
+@media (max-width: 480px) {
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+    }
+
+    .about-highlights {
+        flex-direction: column;
+    }
+}
