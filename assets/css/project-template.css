@@ -181,12 +181,83 @@
 }
 
 /* Image Styles */
+/* ============================
+   Enhanced Project Image + Hover
+   ============================ */
+
+/* Image container */
 .project-image {
+    position: relative;
     width: 100%;
-    border-radius: 15px;
+    overflow: hidden;
+    border-radius: 18px; /* smoother shape */
     box-shadow: var(--shadow-lg);
     margin: 2rem 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
+/* Gentle lift on hover */
+.project-image:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* The image itself */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Slight zoom for depth */
+.project-image:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay layer */
+.project-overlay {
+    position: absolute;
+    inset: 0; /* full coverage */
+    background: rgba(0, 0, 0, 0.65); /* darker overlay for clarity */
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 18px;
+}
+
+/* Fade in overlay immediately on hover */
+.project-image:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Full clickable overlay link */
+.project-overlay a.overlay-link {
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Brighter hover effect */
+.project-overlay a.overlay-link:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.05);
+}
+
 
 .image-grid {
     display: grid;
