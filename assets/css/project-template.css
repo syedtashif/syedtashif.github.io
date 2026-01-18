@@ -1,11 +1,16 @@
-/* Project Template Styles */
+/* ============================
+   PROJECT DETAIL PAGE STYLESHEET
+   project.css
+   ============================ */
 
+/* Import main variables if needed, or redefine them */
 :root {
     --primary: #2563eb;
     --primary-dark: #1e40af;
     --secondary: #8b5cf6;
     --dark: #0f172a;
     --gray: #64748b;
+    --gray-light: #cbd5e1;
     --light: #f8fafc;
     --white: #ffffff;
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -13,7 +18,9 @@
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* Project Hero */
+/* ============================
+   PROJECT HERO SECTION
+   ============================ */
 .project-hero {
     background: var(--gradient-primary);
     color: var(--white);
@@ -87,6 +94,7 @@
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s;
+    text-decoration: none;
 }
 
 .btn-white {
@@ -109,7 +117,9 @@
     color: var(--primary);
 }
 
-/* Project Content */
+/* ============================
+   PROJECT CONTENT SECTION
+   ============================ */
 .project-content-section {
     padding: 4rem 0;
     background: var(--white);
@@ -180,93 +190,30 @@
     padding: 0;
 }
 
-/* Image Styles */
 /* ============================
-   Enhanced Project Image + Hover
+   PROJECT IMAGE STYLES
    ============================ */
-
-/* Image container */
-.project-image {
-    height: 200px;
-    /* background: var(--gradient-primary); */
-    position: relative;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    overflow: hidden;
-    border-radius: 0px;
+.project-image-full {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin: 2rem 0;
     box-shadow: var(--shadow-md);
-    background: var(--light);
 }
-
-/* Gentle lift on hover */
-.project-image:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* The image itself */
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 18px;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-/* Slight zoom for depth */
-.project-image:hover img {
-    transform: scale(1.08);
-}
-
-/* Overlay layer */
-.project-overlay {
-    position: absolute;
-    inset: 0; /* full coverage */
-    background: rgba(0, 0, 0, 0.65); /* darker overlay for clarity */
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 18px;
-}
-
-/* Fade in overlay immediately on hover */
-.project-image:hover .project-overlay {
-    opacity: 1;
-}
-
-/* Full clickable overlay link */
-.project-overlay a.overlay-link {
-    color: #fff;
-    font-size: 1.1rem;
-    text-decoration: none;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-/* Brighter hover effect */
-.project-overlay a.overlay-link:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.05);
-}
-
 
 .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
 }
 
 .image-caption {
@@ -277,7 +224,9 @@
     font-style: italic;
 }
 
-/* Sidebar */
+/* ============================
+   SIDEBAR STYLES
+   ============================ */
 .sidebar {
     position: sticky;
     top: 100px;
@@ -361,7 +310,9 @@
     color: var(--dark);
 }
 
-/* Highlights Box */
+/* ============================
+   HIGHLIGHTS BOX
+   ============================ */
 .highlights-box {
     background: var(--light);
     padding: 2rem;
@@ -379,10 +330,12 @@
     margin-left: 1.5rem;
 }
 
-/* Results Section */
+/* ============================
+   RESULTS SECTION
+   ============================ */
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmin(250px, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
@@ -424,7 +377,9 @@
     font-size: 0.9rem;
 }
 
-/* Call-to-Action Section */
+/* ============================
+   CALL-TO-ACTION SECTION
+   ============================ */
 .project-cta {
     background: var(--gradient-primary);
     color: var(--white);
@@ -447,7 +402,9 @@
     margin-right: auto;
 }
 
-/* Navigation between projects */
+/* ============================
+   PROJECT NAVIGATION
+   ============================ */
 .project-navigation {
     background: var(--light);
     padding: 3rem 0;
@@ -493,7 +450,9 @@
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/* ============================
+   RESPONSIVE DESIGN
+   ============================ */
 @media (max-width: 1024px) {
     .content-grid {
         grid-template-columns: 1fr;
@@ -527,6 +486,10 @@
     }
 
     .image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-projects {
         grid-template-columns: 1fr;
     }
 }
